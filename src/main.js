@@ -9,6 +9,7 @@ import 'vant/lib/index.css'
 import 'amfe-flexible/index.min.js'
  // 引入全局的自定义样式  因为要覆盖vant的样式
 import '@/assets/css/global.less'
+import '@/utils/validate.js' // 引入表单验证相关文件
 // 一并注册使用vant
 Vue.use(Vant)
 //
