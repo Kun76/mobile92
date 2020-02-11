@@ -32,7 +32,7 @@ instance.interceptors.response.use(function (response) {
   }
 }, function (error) {
   if (error.response.status === 401) {
-    router.push('/login')
+    // router.push('/login')
     // return一个空函数来防止报错
     return new Promise(function () { })
   }
