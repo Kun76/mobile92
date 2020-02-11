@@ -30,7 +30,15 @@
       </ValidationObserver>
     </van-cell-group>
     <div class="login-btn">
-      <van-button type="info" size="small" round block @click="login()">登录</van-button>
+      <van-button
+        type="info"
+        size="small"
+        round
+        block
+        @click="login()"
+        :loading="isLogin"
+        loading-text="登录..."
+      >登录</van-button>
     </div>
   </div>
 </template>
@@ -50,7 +58,8 @@ export default {
       loginForm: {
         mobile: "13911111111",
         code: "246810"
-      }
+      },
+      isLogin: false // 登录等待
     };
   },
   methods: {
@@ -63,6 +72,8 @@ export default {
       if (!valid) {
         return false;
       }
+      //按钮变为加载中
+      this.isLogin = true;
       try {
         // 执行封装好的axios的方法
         const result = await apiUserLogin(this.loginForm);
@@ -76,6 +87,8 @@ export default {
         // 登录错误提示
         this.$toast.fail("手机号或验证码错误" + error);
       }
+      // 使得按钮变为正常状态
+      this.isLogin = false;
     }
   }
 };
