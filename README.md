@@ -1,4 +1,3 @@
-# mobile92
 
 ## Project setup
 ```
